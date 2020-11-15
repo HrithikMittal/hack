@@ -15,7 +15,7 @@ function App() {
     };
     console.log(data);
     axios
-      .post(`http://localhost:4000/text`, {
+      .post(`https://hackadhikansh.herokuapp.com/text`, {
         data,
       })
       .then((res) => {
