@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createWorker } from "tesseract.js";
-import Camera from "react-html5-camera-photo";
+import Camera, { FACING_MODES } from "react-html5-camera-photo";
 import "react-html5-camera-photo/build/css/index.css";
 
 import "./App.css";
@@ -33,6 +33,7 @@ function App() {
       <p>{ocr}</p>
       {cameraOn && (
         <Camera
+          idealFacingMode={FACING_MODES.ENVIRONMENT}
           onTakePhoto={(dataUri) => {
             handleTakePhoto(dataUri);
           }}
