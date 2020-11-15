@@ -1,36 +1,33 @@
 import React, { useState } from "react";
-import { createWorker } from "tesseract.js";
 import Camera, { FACING_MODES } from "react-html5-camera-photo";
-// import vision from "react-cloud-vision-api";
-import vision from "@google-cloud/vision";
 import "react-html5-camera-photo/build/css/index.css";
 import "./App.css";
+import axios from "axios";
 
 function App() {
-  const worker = createWorker({
-    logger: (m) => console.log(m),
-  });
-  const doOCR = async (link) => {
-    await worker.load();
-    await worker.loadLanguage("eng");
-    await worker.initialize("eng");
-    const {
-      data: { text },
-    } = await worker.recognize(link);
-    setOcr(text);
-  };
-  const [ocr, setOcr] = useState("Recognizing...");
   const [cameraOn, setCameraOn] = useState(true);
 
   const handleTakePhoto = (dataUri) => {
-    // Do stuff with the photo...
     setCameraOn(false);
-    console.log("takePhoto", dataUri);
+    console.log(dataUri);
+    var data = {
+      content: dataUri.slice(23),
+    };
+    console.log(data);
+    axios
+      .post(`http://localhost:4000/text`, {
+        data,
+      })
+      .then((res) => {
+        console.log("RESPONSE:", res);
+      })
+      .catch((err) => {
+        console.log("ERROR:", err);
+      });
   };
 
   return (
     <div className="App">
-      <p>{ocr}</p>
       {cameraOn && (
         <Camera
           idealFacingMode={FACING_MODES.ENVIRONMENT}
@@ -43,7 +40,7 @@ function App() {
       {!cameraOn && (
         <button
           onClick={() => {
-            setCameraOn(false);
+            setCameraOn(true);
           }}
         >
           Want To Take Again!
