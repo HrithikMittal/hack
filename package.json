@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@google-cloud/vision": "^2.1.2",
+    "express": "^4.17.1",
     "react": "^16.10.2",
     "react-cloud-vision-api": "^0.3.0",
     "react-dom": "^16.10.2",
