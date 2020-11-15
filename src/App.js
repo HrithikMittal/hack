@@ -34,6 +34,7 @@ function App() {
       {cameraOn && (
         <Camera
           idealFacingMode={FACING_MODES.ENVIRONMENT}
+          isImageMirror={false}
           onTakePhoto={(dataUri) => {
             handleTakePhoto(dataUri);
           }}
