@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "august-monument-295713",
+  "private_key_id": "db17b46d84b4ae1b435353c4dcfed6e3fef29b1c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCVnkQZ7u2IN/0r\nu16YRNdgTNXAINtlpB9l2znoxsJmuf8p7fZgunAEu65AX/VCIUUHg+k33gbzvvrz\nyovoqws6FAYzEaJcDIJRX+I7Ni6NGxgN8FI6oYf2I1lDBLFVNCAIdCVLEM7mtCPb\nI2ReUFzawn3JmnmxLL0KiHQ/AF1paYr2IcZnOAqgE36S9w7UmV9ECquAekUmd+3y\nmoMV/gaXud76Sh9HRKoOCdPgglE3Rys1T6vrBGMLUeE2r8I9jdyP6YjY8fNDEN6G\ny7NC1SrImdrowrZ/SnF3vxzewIoNhN0z4+2YAEYucrBdP5XisrvfObS2RHAjBhqA\n9GgZdhhDAgMBAAECggEAA+odeLA6TBNq7vdQBPEy0V+GmChD6pIzYBmEQlrbleR3\n5e5Glpv0zQA8EY3Gf5xvOescRvdAJ1Bv2xZe4rosPlttGMOgA9iFRavEjNgLZRW4\nY2T47HUdduB7OA2qC235sz7sBYgYYbYvhKRAaVdLlqL6t4jwdiToLUZfWZFLiwkg\nThHUGjhu0Xk6MTaHi16LEYPDjXfkOnKW10hU1/cgVHKXHQQa0WGgmdj+cpuyVcUg\n+V7VZSBw8L6B2e+3diK0vJAj+WYz3l6QuaAzB9dhHtyVaOnKGqOL+8lBIE3+lBCK\nPGIFHDZ4Sa/iVn0elj3Ax8KTtbb1ECrp/oCdm595QQKBgQDHrow+0YRL1WjwGf6e\nw7ONLt3UmA/WeUqwhuMmClC/oYa/2Dq5Qs3fOTugHN4r8CoZqlHVksgRL5tGQvj8\nF4NySc2VwlRZ0LJ5c0TBZpV80QOQzkRnx3MDJgxyo4dp7lJpoPxSdKQ+hFXAmyuM\nFgm5CuVUFMCZrxChVOBdUorJzwKBgQC/0QUUt0O28UdFpdoRBtTvI0i/odR7EUjq\nukWtbKB+KrcrIsYqrDX/qZGkS+GENnjTqHtvCO6S+afijMLoT4VoZG96OVOOaaT/\n6/lPamu6kmfdyWTGSxqF6JrW/NjxoYS4gyPmQElxJYJCBD/fGHQ0kbz3euVdJx9a\nTe2bEJyLTQKBgC0wG/7PTUAYEIJdb5igMw7dL0hADT18/2EJdXgTV4i2VhcuKMPq\nEUrV2d93CPQqimx6dcB+UhZJjrsMxunNrGp9ty+P5aTZrLn9Uu7tdyDi8AqiEyrl\nIOryflinFyrqyu2qh89lJBIdwoYu12EBT7v3ckRf2eItkvbfjVKxLkVTAoGAaol9\nePQQ+BsqqtRjOfHBctD2JvmLOo9vIHA1Iw2iVnEDK0I1Lp5Xn5he/BHpP7XBhk2d\nwR4E5D0lsf7cgosoXcLq58fPUNn8euhloGZLT2Thq52gC0LLiHSZC6+EDzDWtmSg\nG9K4988Nef1CPHcok8oeWpY3rnV8RHvj7KxdRkECgYEAhAfsqhjxKtxBYSSbgcpK\nWmx+eqTFmhmzhwjBRq/DZPH8qfG9lU7kibXf1H9U6zAoDC6MBTfI87KC5yOw9mak\nfN8WnLEhKgcy1HD8bon3p6I5hiE4wI5KcJl7iE5bsfi1ky7VtDEkEEGtf12eZ+lT\nCvBNk/XW2qAU/tAA9CSDHAs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "vision-test@august-monument-295713.iam.gserviceaccount.com",
+  "client_id": "112711561889993176330",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vision-test%40august-monument-295713.iam.gserviceaccount.com"
+}

@@ -1,9 +1,11 @@
 {
-  "name": "tesseract.js-react-app",
+  "name": "node",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@google-cloud/vision": "^2.1.2",
     "react": "^16.10.2",
+    "react-cloud-vision-api": "^0.3.0",
     "react-dom": "^16.10.2",
     "react-html5-camera-photo": "^1.5.4",
     "react-scripts": "3.2.0",
@@ -29,5 +31,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "detect.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HrithikMittal/hack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HrithikMittal/hack/issues"
+  },
+  "homepage": "https://github.com/HrithikMittal/hack#readme"
 }

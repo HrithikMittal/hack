@@ -1,11 +1,28 @@
 import React, { useState } from "react";
 import { createWorker } from "tesseract.js";
 import Camera, { FACING_MODES } from "react-html5-camera-photo";
+// import vision from "react-cloud-vision-api";
+import vision from "@google-cloud/vision";
 import "react-html5-camera-photo/build/css/index.css";
-
+import Key from "./august-monument-295713-9d959a5eb2a8.json";
 import "./App.css";
 
 function App() {
+  const googleVision = async (link) => {
+    // vision.init({ auth: "AIzaSyDHUEKaBC_nzmwMwVjRncvHbv_nXulyziA" });
+    try {
+      const client = new vision.ImageAnnotatorClient();
+    } catch (error) {
+      console.log("ERROR:", error);
+    }
+    // console.log("CLOENT:", client);
+    // const fileName = link;
+
+    // const [result] = await client.documentTextDetection(fileName);
+    // const fullTextAnnotation = result.fullTextAnnotation;
+    // console.log(fullTextAnnotation);
+  };
+
   const worker = createWorker({
     logger: (m) => console.log(m),
   });
@@ -25,7 +42,7 @@ function App() {
     // Do stuff with the photo...
     setCameraOn(false);
     console.log("takePhoto", dataUri);
-    doOCR(dataUri);
+    googleVision(dataUri);
   };
 
   return (
