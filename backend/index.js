@@ -1,38 +1,33 @@
-var express = require("express");
-var cors = require("cors");
-var bodyParser = require("body-parser");
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 const vision = require("@google-cloud/vision");
-var app = express();
+const base64ToImage = require("base64-to-image");
+const fs = require("fs");
+
+const app = express();
 
 app.use(bodyParser({ limit: "50mb" }));
 app.use(cors());
 app.use(bodyParser.json());
 
 async function detectText(fileName) {
-  const data = {
-    requests: [
-      {
-        image: {
-          content: fileName,
-        },
-        features: [
-          {
-            type: "TEXT_DETECTION",
-            maxResults: 1,
-          },
-        ],
-      },
-    ],
-  };
-
+  var imageInfo = base64ToImage(fileName, "./cluster/");
+  const client = new vision.ImageAnnotatorClient();
+  const [result] = await client.textDetection(
+    `./cluster/${imageInfo.fileName}`
+  );
   try {
-    const client = new vision.ImageAnnotatorClient();
-    const [result] = await client.textDetection(data);
-
+    fs.unlinkSync(`./cluster/${imageInfo.fileName}`);
+  } catch (err) {
+    console.log("ERROR IN REMOVING FILE:", err);
+    return `Error in removing unnecessary files!`;
+  }
+  try {
     const detections = result.textAnnotations;
     return detections[0].description;
   } catch (err) {
-    return err;
+    return `Sorry! Please input an text image!`;
   }
 }
 
@@ -42,7 +37,6 @@ app.get("/", (req, res) => {
 
 app.post("/text", async (req, res) => {
   const file = req.body.data.content;
-
   const data = await detectText(file);
   res.json(data);
 });

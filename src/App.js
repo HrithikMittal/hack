@@ -6,22 +6,25 @@ import axios from "axios";
 
 function App() {
   const [cameraOn, setCameraOn] = useState(true);
+  const [result, setResult] = useState("");
 
   const handleTakePhoto = (dataUri) => {
     setCameraOn(false);
     console.log(dataUri);
     var data = {
-      content: dataUri.slice(23),
+      content: dataUri,
     };
     console.log(data);
     axios
-      .post(`https://hackadhikansh.herokuapp.com/text`, {
+      .post(`http://localhost:4000/text`, {
         data,
       })
       .then((res) => {
+        setResult(JSON.stringify(res));
         console.log("RESPONSE:", res);
       })
       .catch((err) => {
+        setResult(JSON.stringify(err));
         console.log("ERROR:", err);
       });
   };
@@ -38,13 +41,16 @@ function App() {
         />
       )}
       {!cameraOn && (
-        <button
-          onClick={() => {
-            setCameraOn(true);
-          }}
-        >
-          Want To Take Again!
-        </button>
+        <>
+          <p>{result}</p>
+          <button
+            onClick={() => {
+              setCameraOn(true);
+            }}
+          >
+            Want To Take Again!
+          </button>
+        </>
       )}
     </div>
   );
