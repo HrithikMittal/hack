@@ -14,7 +14,6 @@ function App() {
     var data = {
       content: dataUri,
     };
-    console.log(data);
     axios
       .post(`http://localhost:4000/text`, {
         data,
