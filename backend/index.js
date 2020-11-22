@@ -25,14 +25,24 @@ async function detectText(fileName) {
     console.log("ERROR IN REMOVING FILE:", err);
     return `Error in removing unnecessary files!`;
   }
+  var flag = 0;
   try {
     const detections = result.textAnnotations;
-    detections.forEach((ele) => {
-      if (isMathExpression(ele.description) && isValid(ele.description)) {
+    for (let i = 0; i < detections.length; i++) {
+      const ele = detections[i];
+
+      if (
+        isMathExpression(ele.description) === true &&
+        isValid(ele.description) === true
+      ) {
+        flag == 1;
+        console.log("HELLO");
         return true;
       }
-    });
-    return false;
+    }
+    if (flag === 0) {
+      return false;
+    }
   } catch (err) {
     return `Sorry! Please input an text image! ${err}`;
   }
@@ -45,6 +55,7 @@ app.get("/", (req, res) => {
 app.post("/text", async (req, res) => {
   const file = req.body.data.content;
   const data = await detectText(file);
+  console.log(data);
   res.json(data);
 });
 

@@ -13,35 +13,37 @@ function App() {
     console.log(dataUri);
     var data = {
       content: dataUri,
-    };
-    // https://dashboard.heroku.com
+    }; // https://dashboard.heroku.com
     axios
-      .post(`https://dashboard.heroku.com/text`, {
+      .post(`https://d96a5935ee51.ngrok.io/text`, {
         data,
       })
       .then((res) => {
-        setResult(JSON.stringify(res));
+        setResult(res);
         console.log("RESPONSE:", res);
       })
       .catch((err) => {
-        setResult(JSON.stringify(err));
+        setResult(err);
         console.log("ERROR:", err);
       });
   };
 
   return (
     <div className="App">
+            
       {result !== "" && result.data === true && (
         <div class="alert alert-success">
-          <strong>YES!</strong> Your equation is correct!
+                    <strong>YES!</strong> Your equation is correct!         
         </div>
       )}
+            
       {result !== "" && result.data !== true && (
         <div class="alert alert-danger">
-          <strong>No!</strong> Your Equation if not correct please send the
-          image again.
+                    <strong>No!</strong> Your Equation if not correct please
+          send the           image again.         
         </div>
       )}
+            
       {cameraOn && (
         <Camera
           idealFacingMode={FACING_MODES.ENVIRONMENT}
@@ -51,19 +53,23 @@ function App() {
           }}
         />
       )}
+            
       {!cameraOn && (
         <>
-          <p>{result}</p>
+                    {/* <p>{result}</p> */}
+                    
           <button
             onClick={() => {
               setCameraOn(true);
               setResult("");
             }}
           >
-            Want To Take Again!
+                        Want To Take Again!           
           </button>
+                  
         </>
       )}
+          
     </div>
   );
 }
