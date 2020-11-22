@@ -14,8 +14,9 @@ function App() {
     var data = {
       content: dataUri,
     };
+    // https://dashboard.heroku.com
     axios
-      .post(`http://localhost:4000/text`, {
+      .post(`https://dashboard.heroku.com/text`, {
         data,
       })
       .then((res) => {
@@ -30,6 +31,17 @@ function App() {
 
   return (
     <div className="App">
+      {result !== "" && result.data === true && (
+        <div class="alert alert-success">
+          <strong>YES!</strong> Your equation is correct!
+        </div>
+      )}
+      {result !== "" && result.data !== true && (
+        <div class="alert alert-danger">
+          <strong>No!</strong> Your Equation if not correct please send the
+          image again.
+        </div>
+      )}
       {cameraOn && (
         <Camera
           idealFacingMode={FACING_MODES.ENVIRONMENT}
@@ -45,6 +57,7 @@ function App() {
           <button
             onClick={() => {
               setCameraOn(true);
+              setResult("");
             }}
           >
             Want To Take Again!

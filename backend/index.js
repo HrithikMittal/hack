@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const vision = require("@google-cloud/vision");
 const base64ToImage = require("base64-to-image");
 const fs = require("fs");
+const { isMathExpression, isValid } = require("./controllers/equation");
 
 const app = express();
 
@@ -14,10 +15,10 @@ app.use(bodyParser.json());
 async function detectText(fileName) {
   var imageInfo = base64ToImage(fileName, "./cluster/");
   const client = new vision.ImageAnnotatorClient();
-  console.log(__dirname);
   const [result] = await client.textDetection(
     `${__dirname}/cluster/${imageInfo.fileName}`
   );
+
   try {
     fs.unlinkSync(`${__dirname}/cluster/${imageInfo.fileName}`);
   } catch (err) {
@@ -26,7 +27,12 @@ async function detectText(fileName) {
   }
   try {
     const detections = result.textAnnotations;
-    return detections[0].description;
+    detections.forEach((ele) => {
+      if (isMathExpression(ele.description) && isValid(ele.description)) {
+        return true;
+      }
+    });
+    return false;
   } catch (err) {
     return `Sorry! Please input an text image! ${err}`;
   }
